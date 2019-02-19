@@ -1,0 +1,66 @@
+{% extends "energia/_layouts/base.html" %}
+
+{% block title %}Lista de Leituras{% endblock %}
+
+{% block conteudo %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Lista de Leituras</h5>
+
+                            <p class="card-text">
+                                Aqui está a lista de <code>Leituras</code> cadastradas.
+                            </p>
+                            <div class="text-right">
+                                {#                            <a href="{% url 'website:cadastra_funcionario' %}" class="btn btn-primary">#}
+                                <a href="{% url 'energia:leitura_adicionar' %}" class="btn btn-primary">
+                                    Cadastrar Leitura
+                                </a>
+                            </div>
+
+                        {% if leituras|length > 0 %}
+                            <table class="table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th>data</th>
+                                    <th>leitura</th>
+                                    <th>fechamento</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for leitura in leituras %}
+                                    <tr>
+                                        <td>{{ leitura.data }}</td>
+                                        <td>{{ leitura.leitura }}</td>
+                                        <td>{{ leitura.fechamento }}</td>
+                                        <td>
+                                            {#                                            <a href="{% url 'website:atualiza_funcionario' pk=produto.id %}"#}
+                                            {#                                            <a href="{% url 'en:produto_atualizar' pk=produto.id %}"#}
+                                            {#                                               class="btn btn-info">#}
+                                            {#                                                Atualizar#}
+                                            {#                                            </a>#}
+                                            {#                                            <a href="{% url 'website:deleta_funcionario' pk=produto.id %}"#}
+                                            {#                                            <a href=""#}
+                                            {#                                               class="btn btn-outline-danger">#}
+                                            {#                                                Excluir#}
+                                            {#                                            </a>#}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <div class="text-center mt-5 mb-5 jumbotron">
+                                <h5>Nenhuma <code>Leitura</code> cadastrada ainda.</h5>
+                            </div>
+                        {% endif %}
+                        <hr/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
