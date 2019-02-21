@@ -27,16 +27,21 @@
                                     <th>data</th>
                                     <th>leitura</th>
                                     <th>fechamento</th>
+                                    <th>parcial</th>
+                                    <th>dias</th>
+                                    <th>média</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
-                                {% for leitura in leituras %}
+                                {% for linha in linhas %}
                                     <tr>
-                                        <td>{{ leitura.data }}</td>
-                                        <td>{{ leitura.leitura }}</td>
-                                        <td>{{ leitura.fechamento }}</td>
-                                        <td>
+                                        <td>{{ linha.data }}</td>
+                                        <td>{{ linha.leitura }}</td>
+                                        <td>{{ linha.fechamento }}</td>
+                                        <td>{{ linha.diff_leitura_temp }}</td>
+                                        <td>{{ linha.diff_dt_temp }}</td>
+                                        <td>{{ linha.diff_media_temp }}</td>
                                             {#                                            <a href="{% url 'website:atualiza_funcionario' pk=produto.id %}"#}
                                             {#                                            <a href="{% url 'en:produto_atualizar' pk=produto.id %}"#}
                                             {#                                               class="btn btn-info">#}

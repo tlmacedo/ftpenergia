@@ -12,21 +12,11 @@ $(function () {
 });
 
 
-$(function remover_mascaras (form) {
-    $('.msk-numero6mil').unmask();
-    $('.msk-data_hora').unmask();
-});
-// $(function remover_mascaras(form) {
-//     $(FormObj + " input[type=text]").each(function () {
-//         $(this).unmask();
-//     });
-//     // $(form).find(':input[class*="msk-"]').unmask();
-// });
 
 $(document).ready(function () {
     $('.msk-data').mask('11/11/1111', {placeholder: '__/__/____'});
     $('.msk-hora').mask('00:00:00', {placeholder: '__:__:__'});
-    $('.msk-data_hora').mask('00/00/0000 00:00:00', {placeholder: '__/__/____ __:__:__'});
+    $('.msk-data_hora').mask('00/00/0000 00:00:00');
     // $('.msk-numero6mil').mask("990.000", {reverse: true});
     $('.msk-numero6mil').mask("#.##0", {reverse: true});
     $('.msk-cep').mask('00000-000');

@@ -1,4 +1,5 @@
 from django import forms
+from datetime import datetime
 
 from energia.models import *
 
@@ -29,6 +30,7 @@ class LeiturasForm(forms.ModelForm):
     # )
     #
     class Meta:
+
         model = Energia
         exclude = ('id',)
         help_texts = {
@@ -37,8 +39,8 @@ class LeiturasForm(forms.ModelForm):
             'fechamento': 'Essa leitura foi fechamento de mês?',
         }
         widgets = {
-            'data': forms.TextInput(attrs={'class': 'text-right msk-data_hora'}),
-            'leitura': forms.TextInput(attrs={'class': 'text-right msk-numero6mil'}),
+            'data': forms.TextInput(attrs={'class': 'text-right msk-data_hora', 'value': datetime.now().strftime('%d/%m/%Y %H:%M:%S')}),
+            'leitura': forms.TextInput(attrs={'class': 'text-right'}),
             'fechamento': forms.CheckboxInput(attrs={}),
         }
 
