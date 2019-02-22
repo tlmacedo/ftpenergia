@@ -10,15 +10,15 @@
                     <div class="card-body">
                         <h5 class="card-title">Lista de Leituras</h5>
 
-                            <p class="card-text">
-                                Aqui está a lista de <code>Leituras</code> cadastradas.
-                            </p>
-                            <div class="text-right">
-                                {#                            <a href="{% url 'website:cadastra_funcionario' %}" class="btn btn-primary">#}
-                                <a href="{% url 'energia:leitura_adicionar' %}" class="btn btn-primary">
-                                    Cadastrar Leitura
-                                </a>
-                            </div>
+                        <p class="card-text">
+                            Aqui está a lista de <code>Leituras</code> cadastradas.
+                        </p>
+                        <div class="text-right">
+                            {#                            <a href="{% url 'website:cadastra_funcionario' %}" class="btn btn-primary">#}
+                            <a href="{% url 'energia:leitura_adicionar' %}" class="btn btn-primary">
+                                Cadastrar Leitura
+                            </a>
+                        </div>
 
                         {% if leituras|length > 0 %}
                             <table class="table">
@@ -41,18 +41,19 @@
                                 <tbody>
                                 {% for linha in linhas %}
                                     <tr>
-                                        <td>{{ linha.data }}</td>
+                                        <td>{{ linha.data|date:"d/m/Y" }}</td>
+{#                                        <td>{{ linha.data }}</td>#}
                                         <td>{{ linha.leitura }}</td>
                                         <td>{{ linha.fechamento }}</td>
                                         <td>{{ linha.diff_leitura_temp }}</td>
                                         <td>{{ linha.diff_dt_temp }}</td>
                                         <td>{{ linha.diff_media_temp }}</td>
-{#                                        <td>{{ linha.diff_media_temp|floatformat:2|intcomma }}</td>#}
+                                        {#                                        <td>{{ linha.diff_media_temp|floatformat:2|intcomma }}</td>#}
 
                                         <td>{{ linha.diff_leitura }}</td>
                                         <td>{{ linha.diff_dt }}</td>
                                         <td>{{ linha.diff_media }}</td>
-{#                                        <td>{{ linha.diff_media|floatformat:2|intcomma }}</td>#}
+                                        {#                                        <td>{{ linha.diff_media|floatformat:2|intcomma }}</td>#}
                                         <td>{{ linha.kwh }}</td>
                                         <td>{{ linha.vlr_parcial }}
                                             {#                                            <a href="{% url 'website:atualiza_funcionario' pk=produto.id %}"#}
