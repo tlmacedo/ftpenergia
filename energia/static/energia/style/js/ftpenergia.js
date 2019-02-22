@@ -12,10 +12,10 @@ $(function () {
 });
 
 
-
 $(document).ready(function () {
-    $('.msk-data').mask('11/11/1111', {placeholder: '__/__/____'});
-    $('.msk-hora').mask('00:00:00', {placeholder: '__:__:__'});
+    // $('.msk-data').mask('11/11/1111', {placeholder: '__/__/____'});
+    $('.msk-data').mask('11/11/1111');
+    $('.msk-hora').mask('00:00:00');
     $('.msk-data_hora').mask('00/00/0000 00:00:00');
     // $('.msk-numero6mil').mask("990.000", {reverse: true});
     $('.msk-numero6mil').mask("#.##0", {reverse: true});

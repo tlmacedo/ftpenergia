@@ -6,6 +6,7 @@ class Energia(models.Model):
     data = models.DateTimeField(db_column='data', blank=True, null=True)
     leitura = models.IntegerField(unique=True)
     fechamento = models.BooleanField()
+    kwh = models.DecimalField(max_digits=19, decimal_places=2)
 
     class Meta:
         managed = False

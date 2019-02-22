@@ -30,6 +30,11 @@
                                     <th>parcial</th>
                                     <th>dias</th>
                                     <th>média</th>
+                                    <th>acumulado</th>
+                                    <th>dias acum</th>
+                                    <th>méd acum</th>
+                                    <th>kw/h</th>
+                                    <th>R$ pac</th>
                                 </tr>
                                 </thead>
 
@@ -42,6 +47,14 @@
                                         <td>{{ linha.diff_leitura_temp }}</td>
                                         <td>{{ linha.diff_dt_temp }}</td>
                                         <td>{{ linha.diff_media_temp }}</td>
+{#                                        <td>{{ linha.diff_media_temp|floatformat:2|intcomma }}</td>#}
+
+                                        <td>{{ linha.diff_leitura }}</td>
+                                        <td>{{ linha.diff_dt }}</td>
+                                        <td>{{ linha.diff_media }}</td>
+{#                                        <td>{{ linha.diff_media|floatformat:2|intcomma }}</td>#}
+                                        <td>{{ linha.kwh }}</td>
+                                        <td>{{ linha.vlr_parcial }}
                                             {#                                            <a href="{% url 'website:atualiza_funcionario' pk=produto.id %}"#}
                                             {#                                            <a href="{% url 'en:produto_atualizar' pk=produto.id %}"#}
                                             {#                                               class="btn btn-info">#}
