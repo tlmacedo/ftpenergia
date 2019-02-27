@@ -26,17 +26,13 @@ class LeiturasListView(ListView):
         dt_ultima_temp = qs[0].get('data')
         leitura_ultima_temp = qs[0].get('leitura')
         kwh = qs[0].get('kwh')
+        dt_ultima_fechamento = qs[0].get('data')
+        leitura_ultima_fechamento = qs[0].get('leitura')
+        kwh = qs[0].get('kwh')
 
         linhas = []
         for linha in qs:
-            print('linha:', linha)
-            if linha['fechamento'] is True:
-                dt_ultima_fechamento = linha['data']
-                leitura_ultima_fechamento = linha['leitura']
-                kwh = linha['kwh']
 
-            # fmt_data = {'data': format(linha['data'], '%d/%m/%Y %H:%M:%S')}
-            # linha.update(fmt_data)
             linha['diff_leitura_temp'] = linha['leitura'] - leitura_ultima_temp
             linha['diff_leitura'] = linha['leitura'] - leitura_ultima_fechamento
 
@@ -63,6 +59,10 @@ class LeiturasListView(ListView):
 
             dt_ultima_temp = linha['data']
             leitura_ultima_temp = linha['leitura']
+            if linha['fechamento'] is True:
+                dt_ultima_fechamento = linha['data']
+                leitura_ultima_fechamento = linha['leitura']
+                kwh = linha['kwh']
 
             # parcial_temp = leitura_ultima_fechamento - linha['leitura']
             # linha['dias'] = 0
